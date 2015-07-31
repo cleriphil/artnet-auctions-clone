@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artnet Auctions</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<body>
+  <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+      <div class="container">
+        <div class="navbar-header">
+
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+
+          <a href="/" class="navbar-brand">Artnet Auctions</a>
+
+        </div>
+         <div class="collapse navbar-collapse" id="navbar-collapse">
+
+          <ul class="nav navbar-nav">
+
+            <% if user_signed_in? %>
+              <li><%= link_to "Logged in as #{current_user.email}", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+
+    <p class="notice"><%= flash[:notice] %></p>
+    <p class="alert"><%= flash[:alert] %></p>
+    <%= yield %>
+  </div>
+</body>
+</html>

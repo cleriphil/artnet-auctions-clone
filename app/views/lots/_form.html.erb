@@ -1,0 +1,25 @@
+<%= render "layouts/errors", :object => @lot %>
+
+<%= form_for [@auction, @lot] do |f| %>
+  <%= f.label :artwork_title %>
+  <%= f.text_field :artwork_title %>
+  <%= f.label :artwork_date %>
+  <%= f.text_field :artwork_date %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :estimate %>
+  <%= f.text_area :estimate %>
+  <%= f.label :opening_bid %>
+  <%= f.text_area :opening_bid %>
+  <%= f.label :signed_details %>
+  <%= f.text_area :signed_details %>
+  <%= f.label :medium %>
+  <%= f.text_area :medium %>
+  <%= f.label :image_size %>
+  <%= f.text_area :image_size %>
+  <%= f.label :overall_size %>
+  <%= f.text_area :overall_size %>
+  <%= f.label :framed_size %>
+  <%= f.text_area :framed_size %>
+  <%= f.submit %>
+<% end %>

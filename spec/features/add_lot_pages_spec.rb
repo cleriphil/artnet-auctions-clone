@@ -8,10 +8,10 @@ describe "the add a lot process" do
     login_as(user, :scope => :user)
     visit auction_path(auction)
     click_on 'Add Lot'
-    fill_in 'Artwork_title', :with => 'Sky Cathedral'
+    fill_in 'Artwork title', :with => 'Sky Cathedral'
     fill_in 'Artwork date', :with => '1958'
     fill_in 'Estimate', :with => '8,000—10,000 USD'
-    click_on 'Create lot'
+    click_on 'Create Lot'
     expect(page).to have_content 'Sky Cathedral'
     expect(page).to have_content '1958'
     expect(page).to have_content '8,000—10,000 USD'

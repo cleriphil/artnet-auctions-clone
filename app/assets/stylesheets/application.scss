@@ -20,4 +20,28 @@
 
 body {
   padding-top: 100px;
+  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif
+}
+
+.navbar-nav {
+  position: relative;
+  top: 20px;
+}
+
+.navbar-brand {
+  position: relative;
+  top: 20px;
+}
+
+nav {
+  height: 80px;
+}
+
+.navbar-default {
+  background-color: #fff;
+}
+
+.main-container {
+  padding: 0 20px 0 20px;
+
 }

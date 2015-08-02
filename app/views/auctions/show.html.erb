@@ -10,6 +10,14 @@
 <hr>
 <p class="text-center"><%= @auction.description %></p>
 
+<% @auction.lots.each do |lot| %>
+  <%= lot.artwork_title %>
+  <%= lot.artwork_date %>
+  <%= lot.estimate %>
+<% end %>
+
+
+
 <%= link_to 'Edit Auction', edit_auction_path(@auction) %>
 <%= link_to 'Delete Auction', auction_path(@auction),
                           :data => {:confirm => "Are you sure?",

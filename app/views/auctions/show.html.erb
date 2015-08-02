@@ -11,3 +11,6 @@
 <p class="text-center"><%= @auction.description %></p>
 
 <%= link_to 'Edit Auction', edit_auction_path(@auction) %>
+<%= link_to 'Delete Auction', auction_path(@auction),
+                          :data => {:confirm => "Are you sure?",
+                          :method => "delete"} %>

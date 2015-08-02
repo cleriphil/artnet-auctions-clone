@@ -24,6 +24,17 @@ require 'rspec/rails'
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
+
+include Warden::Test::Helpers
+Warden.test_mode!
+
+RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

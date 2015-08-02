@@ -6,8 +6,8 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
   <%= f.label :start_date %>
-  <%= f.datetime_select :start_date %>
+  <%= f.datetime_local_field :start_date %>
   <%= f.label :end_date %>
-  <%= f.datetime_select :end_date %>
+  <%= f.datetime_local_field :end_date %>
   <%= f.submit %>
 <% end %>

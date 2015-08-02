@@ -23,7 +23,23 @@ class AuctionsController < ApplicationController
   end
 
   def edit
+    @auction = Auction.find(params[:id])
   end
+
+  def update
+    @auction = Auction.find(params[:id])
+    if @auction.update(auction_params)
+      redirect_to auction_path(@auction)
+    else
+      render :edit
+    end
+  end
+  def destroy
+    @auction = Auction.find(params[:id])
+    @auction.destroy
+    redirect_to auctions_path
+  end
+
 
 private
   def auction_params

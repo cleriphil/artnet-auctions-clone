@@ -1,18 +1,14 @@
-require 'rails_helper'
-
-
-describe "the add an auction process" do
-  it "adds an auction" do
-    user = FactoryGirl.create(:user, admin?: true)
-    skill = FactoryGirl.create(:skill)
-    visit '/users/login'
-    login_as(user, :scope => :user)
-    visit skills_path
-    click_on 'SQL'
-    click_on 'Edit Skill'
-    fill_in 'Name', :with => 'Rails'
-    fill_in 'Description', :with => 'MVC Framework'
-    click_on 'Update Skill'
-    expect(page).to have_content 'Rails'
+FactoryGirl.define do
+  factory :user do
+    email 'test78@test.com'
+    username 'tester'
+    password 'password'
+    password_confirmation 'password'
+  end
+  factory :auction do
+    name 'Contemporary Art'
+    description 'This is the description for Contemporary Art'
+    start_date '2015-08-01 00:45:00'
+    end_date '2015-08-07 00:45:00'
   end
 end

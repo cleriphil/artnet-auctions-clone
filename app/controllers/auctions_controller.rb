@@ -3,6 +3,11 @@ class AuctionsController < ApplicationController
     @auctions = Auction.all
 
   end
+
+  def show
+    @auction = Auction.find(params[:id])
+  end
+
   def new
     @auction = Auction.new
   end
@@ -15,6 +20,9 @@ class AuctionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
 private

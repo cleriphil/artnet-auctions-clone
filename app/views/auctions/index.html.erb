@@ -9,6 +9,7 @@
   <%= auction.start_date.strftime("%m/%d/%Y at %I:%M%p") %> to <%= auction.end_date.strftime("%m/%d/%Y at %I:%M%p") %>
 
     <% end %>
+    <%= link_to 'View Auction', auction_path(auction) %>
   </p>
 
 <% end %>

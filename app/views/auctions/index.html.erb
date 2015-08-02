@@ -1,0 +1,16 @@
+
+<h2>Featured Auctions</h2>
+<% @auctions.each do |auction| %>
+  <%= auction.name %>
+  <p>Live for bidding
+    <% if auction.start_date.today? | auction.start_date.past?  %>
+      now through <%= auction.end_date.strftime("%m/%d/%Y at %I:%M%p") %>
+    <% else %>
+  <%= auction.start_date.strftime("%m/%d/%Y at %I:%M%p") %> to <%= auction.end_date.strftime("%m/%d/%Y at %I:%M%p") %>
+
+    <% end %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Add Auction', new_auction_path	 %>

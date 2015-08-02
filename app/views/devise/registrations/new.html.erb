@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Register for artnet Auctions.</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -6,6 +6,11 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">
@@ -20,10 +25,16 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <p>By clicking "Register", I agree to the Website Terms of Service
+  and Privacy Policy, and confirm that I am at least 18 years of
+  age. Additional terms and conditions will apply in order to
+  buy or sell.</p>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+
+
+
+    <%= f.submit "Register" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<%= link_to "Already Registered? Sign in", new_user_session_path %>

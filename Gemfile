@@ -12,6 +12,7 @@ gem 'sass-rails'
 gem 'pry'
 gem 'devise'
 gem 'bootstrap_form'
+gem 'simple_form'
 
 
 

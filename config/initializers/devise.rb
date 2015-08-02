@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '00fcb693582fd86796eb1ff57f106f7e206857806bc4c13c91701a3425d3fdc05c51d0437b0871d5eab6c8b64a98fd7e6b0407fa69e966dd9f562558f4c87922'
+  # config.secret_key = 'df2628685ce827b295134395d9b6cadf3b85fe233c30d9ac966a05752cdfed6328ccf26c8c78549abf350fca9f09dbf8a10b7831c2b5a3e730aa125a4c8f9f54'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'artnetauctions@example.com'
+  config.mailer_sender = 'cleri@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -31,7 +31,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:username]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -43,12 +43,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:username]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [:username]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'f6deac6a0457bf68bda2f58ec8269ae81f7a89595df60e7095aa4c7d37442d7256c112fa50bdda80dc9ca053c4392c4709aecb84d4e810d82680a2ecbb380b5e'
+  # config.pepper = '34121545c28af3b6eeddd7e001db49fa6a116c4427a320d4010e933ba164b268ca72bf65f2610095c3367f6a3649ed2c89de957539b9fa75d45f99700762e912'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

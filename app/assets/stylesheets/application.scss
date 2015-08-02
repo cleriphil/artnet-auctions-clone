@@ -20,7 +20,9 @@
 
 body {
   padding-top: 100px;
-  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif
+  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #231F20;
 }
 
 .navbar-nav {
@@ -43,5 +45,24 @@ nav {
 
 .main-container {
   padding: 0 20px 0 20px;
+}
 
+.auction-box {
+  float: left;
+  width: 215px;
+  height: 274px;
+}
+
+
+
+.auction-link {
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 10px;
+
+}
+
+a {
+  text-decoration: none;
 }

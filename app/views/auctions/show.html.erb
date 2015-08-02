@@ -14,3 +14,5 @@
 <%= link_to 'Delete Auction', auction_path(@auction),
                           :data => {:confirm => "Are you sure?",
                           :method => "delete"} %>
+
+<%= link_to 'Add Lot', new_auction_lot_path(@auction) %>

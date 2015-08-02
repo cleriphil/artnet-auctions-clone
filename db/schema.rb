@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802025842) do
+ActiveRecord::Schema.define(version: 20150802200640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 20150802025842) do
     t.string   "description"
     t.datetime "start_date"
     t.datetime "end_date"
+  end
+
+  create_table "lots", force: :cascade do |t|
+    t.string  "artwork_title"
+    t.string  "artwork_date"
+    t.integer "lot_id"
+    t.string  "medium"
+    t.string  "image_size"
+    t.string  "overall_size"
+    t.string  "framed_size"
+    t.string  "signed_details"
+    t.string  "edition"
+    t.string  "estimate"
+    t.integer "opening_bid"
+    t.integer "current_bid",    default: 0
+    t.integer "number_of_bids", default: 0
+    t.string  "description"
+    t.integer "auction_id"
   end
 
   create_table "users", force: :cascade do |t|

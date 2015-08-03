@@ -25,14 +25,24 @@ body {
   color: #231F20;
 }
 
+.notice {
+  color:#458B00;
+}
+
+.alert {
+  color: #cc0000;
+}
+
 li {
   list-style-type: none;
 }
 
 
+
 .navbar-brand {
   position: relative;
   top: 20px;
+  z-index: 15;
 }
 
 nav {

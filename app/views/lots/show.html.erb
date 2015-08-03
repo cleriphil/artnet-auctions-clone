@@ -1,0 +1,32 @@
+<div class="text-center">
+  <ul>
+    <li><%= @lot.artwork_title %></li>
+    <li><%= @lot.artwork_date %></li>
+    <li>Lot ID: <%= @lot.lot_id %></li>
+  </ul>
+  <hr>
+  <ul>
+    <li><%= @lot.medium %></li>
+    <li>Image Size:<%= @lot.image_size %></li>
+    <li>Overall Size:<%= @lot.overall_size %></li>
+    <li>Framed Size:<%= @lot.framed_size %></li>
+    <li><%= @lot.signed_details %></li>
+    <li><%= @lot.estimate %></li>
+  </ul>
+
+  <p class="text-center">Live for bidding
+    <% if @auction.start_date.today? | @auction.start_date.past?  %>
+      now through <%= @auction.end_date.strftime("%B %-d, %Y") %>
+    <% else %>
+  <%= @auction.start_date.strftime("%B %-d") %> to <%= @auction.end_date.strftime("%B %-d, %Y") %>
+    <% end %>
+  </p>
+  <hr>
+  <h2>Lot Details</h2>
+  <p class="text-left"><%= @lot.description %></p>
+</div>
+
+<%= link_to "Edit Lot", edit_auction_lot_path(@auction, @lot) %>
+<%= link_to "Delete Lot", auction_lot_path(@auction, @lot),
+                      :data => {:confirm => "Are you sure?",
+                      :method => "delete"} %>

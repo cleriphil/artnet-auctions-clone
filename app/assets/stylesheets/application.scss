@@ -25,10 +25,10 @@ body {
   color: #231F20;
 }
 
-.navbar-nav {
-  position: relative;
-  top: 20px;
+li {
+  list-style-type: none;
 }
+
 
 .navbar-brand {
   position: relative;
@@ -63,6 +63,36 @@ nav {
 
 }
 
-a {
+a, a:hover {
   text-decoration: none;
+}
+
+.navbar-toggle {
+  background-color: white;
+  border: none;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: white;
+  cursor: pointer;
+
+}
+
+.navbar-toggle, .navbar-collapse {
+  position: relative;
+  top: 29px;
+}
+.nav .navbar-nav li a {
+  background-color: yellow;
+  z-index: 6;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+  background-color: white;
+  color: black;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: white;
 }

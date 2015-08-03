@@ -4,6 +4,11 @@ class LotsController < ApplicationController
     @lot = Lot.new
   end
 
+  def show
+    @auction = Auction.find(params[:auction_id])
+    @lot = Lot.find(params[:id])
+  end
+
   def create
     @auction = Auction.find(params[:auction_id])
     @lot = @auction.lots.new(lot_params)
@@ -17,12 +22,25 @@ class LotsController < ApplicationController
   end
 
   def edit
+    @auction = Auction.find(params[:auction_id])
+    @lot = Lot.find(params[:id])
   end
 
   def update
+    @auction = Auction.find(params[:auction_id])
+    @lot = Lot.find(params[:id])
+    if @lot.update(lot_params)
+      redirect_to auction_lot_path(@auction, @lot)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @auction = Auction.find(params[:auction_id])
+    @lot = Lot.find(params[:id])
+    @lot.destroy
+    redirect_to auction_path(@auction)
   end
 
 private

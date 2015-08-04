@@ -16,10 +16,11 @@
 <% end %>
 
 
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Edit Auction', edit_auction_path(@auction) %>
+  <%= link_to 'Delete Auction', auction_path(@auction),
+                            :data => {:confirm => "Are you sure?",
+                            :method => "delete"} %>
 
-<%= link_to 'Edit Auction', edit_auction_path(@auction) %>
-<%= link_to 'Delete Auction', auction_path(@auction),
-                          :data => {:confirm => "Are you sure?",
-                          :method => "delete"} %>
-
-<%= link_to 'Add Lot', new_auction_lot_path(@auction) %>
+  <%= link_to 'Add Lot', new_auction_lot_path(@auction) %>
+<% end %>

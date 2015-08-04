@@ -26,7 +26,9 @@
   <p class="text-left"><%= @lot.description %></p>
 </div>
 
-<%= link_to "Edit Lot", edit_auction_lot_path(@auction, @lot) %>
-<%= link_to "Delete Lot", auction_lot_path(@auction, @lot),
-                      :data => {:confirm => "Are you sure?",
-                      :method => "delete"} %>
+<% if current_user && current_user.admin? %>
+  <%= link_to "Edit Lot", edit_auction_lot_path(@auction, @lot) %>
+  <%= link_to "Delete Lot", auction_lot_path(@auction, @lot),
+                        :data => {:confirm => "Are you sure?",
+                        :method => "delete"} %>
+<% end %>

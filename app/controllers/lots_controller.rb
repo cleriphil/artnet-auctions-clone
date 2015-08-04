@@ -1,4 +1,6 @@
 class LotsController < ApplicationController
+  before_action :admin_user, only: [:edit, :update, :destroy, :new, :create]
+
   def new
     @auction = Auction.find(params[:auction_id])
     @lot = Lot.new
@@ -47,5 +49,7 @@ private
   def lot_params
     params.require(:lot).permit(:artwork_title, :artwork_date, :description, :estimate, :opening_bid, :current_bid, :number_of_bids, :signed_details, :image_size, :overall_size, :framed_size, :medium )
   end
-
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
 end

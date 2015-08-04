@@ -1,4 +1,6 @@
 class AuctionsController < ApplicationController
+  before_action :admin_user, only: [:edit, :update, :destroy, :new, :create]
+
   def index
     @auctions = Auction.all
 
@@ -34,6 +36,7 @@ class AuctionsController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @auction = Auction.find(params[:id])
     @auction.destroy
@@ -44,5 +47,9 @@ class AuctionsController < ApplicationController
 private
   def auction_params
     params.require(:auction).permit(:name, :description, :start_date, :end_date)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end

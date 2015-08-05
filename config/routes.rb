@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     resources :lots
   end
 
+  resources :artists do
+    resources :lots
+  end
+  # check if this routing is correct
+
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
 end

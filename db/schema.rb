@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802200640) do
+ActiveRecord::Schema.define(version: 20150805045602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "nationality"
+    t.string "year_of_birth"
+  end
 
   create_table "auctions", force: :cascade do |t|
     t.string   "name"
@@ -39,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150802200640) do
     t.integer "number_of_bids", default: 0
     t.string  "description"
     t.integer "auction_id"
+    t.integer "artist_id"
   end
 
   create_table "users", force: :cascade do |t|

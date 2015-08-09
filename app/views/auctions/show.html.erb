@@ -13,10 +13,17 @@
 <p class="text-center"><%= @auction.description %></p>
 
 <% @auction.lots.each do |lot| %>
-  <%= lot.artist.name %>
+  <% if lot.artist %>
+    <%= lot.artist.name %>
+    <%= lot.artist.nationality %>
+    <%= lot.artist.year_of_birth %>
+  <% else %>
+    Unknown Artist
+  <% end %>
   <%= link_to lot.artwork_title, auction_lot_path(@auction, lot) %><br>
   <%= link_to lot.artwork_date, auction_lot_path(@auction, lot)%><br>
   <%= link_to lot.estimate, auction_lot_path(@auction, lot) %>
+<hr>
 <% end %>
 
 

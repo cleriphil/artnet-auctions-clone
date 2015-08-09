@@ -2,6 +2,13 @@
 
 <div class="text-center">
   <ul>
+    <% if @lot.artist %>
+      <li><%= @lot.artist.name %></li>
+      <li>nationality: <%= @lot.artist.nationality %></li>
+      <li>year of birth: <%= @lot.artist.year_of_birth %></li>
+    <% else %>
+      Unknown Artist
+    <% end %>
     <li><%= @lot.artwork_title %></li>
     <li><%= @lot.artwork_date %></li>
     <li>Lot ID: <%= @lot.lot_id %></li>

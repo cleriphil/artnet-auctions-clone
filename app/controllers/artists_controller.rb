@@ -15,7 +15,6 @@ class ArtistsController < ApplicationController
     # @auction = Auction.find(params[:auction_id])
     if @artist.save
       flash[:notice] = "Artist Saved!"
-
       respond_to do |format|
        format.html { redirect_to root_path }
        format.js

@@ -21,9 +21,8 @@
   <%= f.text_field :overall_size %>
   <%= f.label :framed_size %>
   <%= f.text_field :framed_size %>
----
   <%= f.label :artist_id %>
-  <%= f.collection_select :artist_id, Artist.order(:name),:id,:name, include_blank: true %>
+  <%= f.collection_select :artist_id, Artist.order(:created_at),:id,:name, include_blank: true %>
   <%= f.submit %>
 <% end %>
 

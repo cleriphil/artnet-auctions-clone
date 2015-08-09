@@ -1,3 +1,2 @@
-
-$('#lot_artist_id').append('<option value="<%= @artist.id %>"><%= @artist.name %></option>');
+$('#lot_artist_id').prepend('<option selected value="<%= @artist.id %>"><%= @artist.name %></option>');
 $('#new_artist').hide();

@@ -14,12 +14,8 @@ class LotsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @lot = @auction.lots.new(lot_params)
-    
-    # does this work? :::
-    # @artist = Artist.find(params[lot_params(:artist_id)])
-    # @artist.lots.new(lot_params)
-
-
+    @artist = Artist.find(lot_params[:artist_id])
+    @artist.lots.create(lot_params)
     if @lot.save
      flash[:notice] = "Lot Saved!"
      redirect_to auction_path(@auction)

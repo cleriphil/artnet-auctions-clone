@@ -14,6 +14,12 @@ class LotsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @lot = @auction.lots.new(lot_params)
+    
+    # does this work? :::
+    # @artist = Artist.find(params[lot_params(:artist_id)])
+    # @artist.lots.new(lot_params)
+
+
     if @lot.save
      flash[:notice] = "Lot Saved!"
      redirect_to auction_path(@auction)
@@ -47,7 +53,7 @@ class LotsController < ApplicationController
 
 private
   def lot_params
-    params.require(:lot).permit(:artwork_title, :artwork_date, :description, :estimate, :opening_bid, :current_bid, :number_of_bids, :signed_details, :image_size, :overall_size, :framed_size, :medium )
+    params.require(:lot).permit(:artwork_title, :artwork_date, :description, :estimate, :opening_bid, :current_bid, :number_of_bids, :signed_details, :image_size, :overall_size, :framed_size, :medium, :artist_id )
   end
   def admin_user
     redirect_to(root_url) unless current_user.admin?

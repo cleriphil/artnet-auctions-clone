@@ -8,21 +8,29 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
   <%= f.label :estimate %>
-  <%= f.text_area :estimate %>
+  <%= f.text_field :estimate %>
   <%= f.label :opening_bid %>
-  <%= f.text_area :opening_bid %>
+  <%= f.text_field :opening_bid %>
   <%= f.label :signed_details %>
-  <%= f.text_area :signed_details %>
+  <%= f.text_field :signed_details %>
   <%= f.label :medium %>
-  <%= f.text_area :medium %>
+  <%= f.text_field :medium %>
   <%= f.label :image_size %>
-  <%= f.text_area :image_size %>
+  <%= f.text_field :image_size %>
   <%= f.label :overall_size %>
-  <%= f.text_area :overall_size %>
+  <%= f.text_field :overall_size %>
   <%= f.label :framed_size %>
-  <%= f.text_area :framed_size %>
+  <%= f.text_field :framed_size %>
+---
+  <%= f.label :artist_id %>
+  <%= f.collection_select :artist_id, Artist.order(:name),:id,:name, include_blank: true %>
   <%= f.submit %>
 <% end %>
+
+<%= link_to "Add a New Artist", new_artist_path, id: "new_link_artist", remote: true, :class => "btn btn-success" %>
+
+
+
 
 <!-- make a drop down menu for artists.
 first, the user must choose an artist. If the artist does

@@ -1,28 +1,20 @@
-== README
+## Artnet Auctions Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A version of https://www.artnet.com/auctions/ built with Ruby on Rails.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Setup
+clone project onto your desktop and go to the project directory in the terminal.
+run postgres
+```
+$ postgres
+```
+create the database:
+```
+$ rake db:create
+$ rake db:migrate
+```
+run the rails server:
+```
+$ rails s
+```
+go to localhost:3000 in your web browser to see the app up and running.

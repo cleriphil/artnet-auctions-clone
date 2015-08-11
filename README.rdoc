@@ -1,6 +1,6 @@
 ## Artnet Auctions Clone
 
-A version of https://www.artnet.com/auctions/ built with Ruby on Rails.
+A version of http://www.artnet.com/auctions/ built with Ruby on Rails.
 
 ### Setup
 clone project onto your desktop and go to the project directory in the terminal.

@@ -6,16 +6,15 @@
   <ul>
     <% if @lot.image %>
       <%= image_tag @lot.image.url(:medium) %>
+      <hr>
     <% end %>
     <% if @lot.artist %>
       <li><%= @lot.artist.name %></li>
-      <li>nationality: <%= @lot.artist.nationality %></li>
-      <li>year of birth: <%= @lot.artist.year_of_birth %></li>
+      <li>(<%= @lot.artist.nationality %>, b. <%= @lot.artist.year_of_birth %>)</li>
     <% else %>
       Unknown Artist
     <% end %>
-    <li><%= @lot.artwork_title %></li>
-    <li><%= @lot.artwork_date %></li>
+    <li><em><%= @lot.artwork_title %></em>,<%= @lot.artwork_date %></li>
     <li>Lot ID: <%= @lot.lot_id %></li>
   </ul>
   <hr>

@@ -3,6 +3,7 @@
 <%= form_for [@auction, @lot] do |f| %>
   <%= f.label :artwork_title %>
   <%= f.text_field :artwork_title %>
+  <%= f.file_field :image %>
   <%= f.label :artwork_date %>
   <%= f.text_field :artwork_date %>
   <%= f.label :description %>

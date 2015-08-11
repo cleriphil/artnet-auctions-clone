@@ -49,7 +49,7 @@ class LotsController < ApplicationController
 
 private
   def lot_params
-    params.require(:lot).permit(:artwork_title, :artwork_date, :description, :estimate, :opening_bid, :current_bid, :number_of_bids, :signed_details, :image_size, :overall_size, :framed_size, :medium, :artist_id )
+    params.require(:lot).permit(:artwork_title, :artwork_date, :description, :estimate, :opening_bid, :current_bid, :number_of_bids, :signed_details, :image_size, :overall_size, :framed_size, :medium, :artist_id, :image )
   end
   def admin_user
     redirect_to(root_url) unless current_user.admin?

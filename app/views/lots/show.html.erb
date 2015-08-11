@@ -1,7 +1,12 @@
 <% content_for(:title, "#{@lot.artwork_title} on artnet Auctions") %>
 
+
+
 <div class="text-center">
   <ul>
+    <% if @lot.image %>
+      <%= image_tag @lot.image.url(:medium) %>
+    <% end %>
     <% if @lot.artist %>
       <li><%= @lot.artist.name %></li>
       <li>nationality: <%= @lot.artist.nationality %></li>

@@ -121,3 +121,28 @@ footer li {
 footer li a {
   color: #fff;
 }
+
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+  color: white;
+  text-shadow: none;
+
+}
+
+.carousel-control.right {
+  background-image: none;
+  left: auto;
+  right: -50px;
+}
+.carousel-control.left {
+  background-image: none;
+  right: auto;
+  left: -50px;
+}
+
+.carousel-control:hover {
+  color: black;
+  text-decoration: none;
+  font-weight: normal;
+}

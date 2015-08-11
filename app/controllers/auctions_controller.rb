@@ -3,6 +3,7 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    @artists = Artist.all
 
   end
 

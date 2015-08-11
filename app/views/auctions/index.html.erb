@@ -1,26 +1,76 @@
 <% content_for(:title, "Art Auctions - Buying and Selling on artnet Auctions") %>
 
-
-<h2 class="text-center">Featured Auctions</h2>
-<% @auctions.each do |auction| %>
-  <div class="auction-box text-center">
-    <%= auction.name %>
-    <p><small>Live for bidding
-      <% if auction.start_date.today? | auction.start_date.past?  %>
-        now through <%= auction.end_date.strftime("%B %-d") %>
-      <% else %>
-    <%= auction.start_date.strftime("%B %-d") %>-<%= auction.end_date.strftime("%-d") %>
-
-      <% end %>
-    </small><br>
-    <%= link_to 'Learn More', auction_path(auction), class: "auction-link"%></p>
-
+<div class="container">
+  <div class="col-md-12">
+     <h2 class="text-center">Featured Auctions</h2>
+      <div id="auction_car" class="carousel slide">
+        <div class="carousel-inner">
+          <% auction_sets = @auctions.each_slice(4).to_a %>
+          <% auction_sets.each do |set| %>
+            <% if set === auction_sets[0] %>
+                <% active = true %>
+            <% end %>
+            <div class="<%= active ? 'item active' : 'item' %>">
+              <div class="row">
+                <% set.each do |auction| %>
+                  <div class="col-sm-3">
+                    <%= auction.name %>
+                    <% if auction.lots.length > 0  %>
+                      <%= image_tag auction.lots[0].image(:medium) %>
+                    <% end %>
+                    <p><small>Live for bidding
+                      <% if auction.start_date.today? | auction.start_date.past?  %>
+                        now through <%= auction.end_date.strftime("%B %-d") %>
+                      <% else %>
+                        <%= auction.start_date.strftime("%B %-d") %>-<%= auction.end_date.strftime("%-d") %>
+                      <% end %></small><br>
+                    <%= link_to 'Learn More', auction_path(auction), class: "auction-link"%></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#auction_car" data-slide="prev"><</a>
+      <a class="right carousel-control" href="#auction_car" data-slide="next">></a>
   </div>
-
-
-<% end %>
-
+</div>
 
 <% if current_user && current_user.admin? %>
   <%= link_to 'Add Auction', new_auction_path	 %>
 <% end %>
+
+<hr>
+
+<div class="container">
+  <div class="col-md-12">
+     <h2 class="text-center">Featured Artists</h2>
+      <div id="artist_car" class="carousel slide">
+        <div class="carousel-inner">
+          <% artist_sets = @artists.each_slice(4).to_a %>
+          <% artist_sets.each do |set| %>
+            <% if set === artist_sets[0] %>
+                <% active = true %>
+            <% end %>
+            <div class="<%= active ? 'item active' : 'item' %>">
+              <div class="row">
+                <% set.each do |artist| %>
+                  <div class="col-sm-3">
+                    <%= artist.name %>
+                    <% if artist.lots.length > 0  %>
+                      <%= image_tag artist.lots[0].image(:medium) %>
+                    <% end %>
+                    <%= artist.nationality %>
+                    <%= artist.year_of_birth %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#artist_car" data-slide="prev"><</a>
+      <a class="right carousel-control" href="#artist_car" data-slide="next">></a>
+  </div>
+</div>

@@ -12,8 +12,7 @@ gem 'sass-rails'
 gem 'pry'
 gem 'devise'
 gem 'bootstrap_form'
-
-
+gem 'paperclip'
 
 group :development do
   gem 'byebug'

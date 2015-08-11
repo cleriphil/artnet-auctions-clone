@@ -1,19 +1,16 @@
 $(function() {
 	$('#auction_car').carousel({
-	interval: 10000
+	interval: false
 	})
 
     $('#auction_car').on('slid.bs.carousel', function() {
-    	//alert("slid");
 	});
 
 	$('#artist_car').carousel({
-	interval: 10000
+	interval: false
 	})
 
     $('#artist_car').on('slid.bs.carousel', function() {
-    	//alert("slid");
 	});
-
 
 });

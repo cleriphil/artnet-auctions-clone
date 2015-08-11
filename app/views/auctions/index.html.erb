@@ -13,7 +13,7 @@
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |auction| %>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 text-center">
                     <%= auction.name %>
                     <% if auction.lots.length > 0  %>
                       <%= image_tag auction.lots[0].image(:medium) %>
@@ -56,7 +56,7 @@
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |artist| %>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 text-center">
                     <%= artist.name %>
                     <% if artist.lots.length > 0  %>
                       <%= image_tag artist.lots[0].image(:medium) %>

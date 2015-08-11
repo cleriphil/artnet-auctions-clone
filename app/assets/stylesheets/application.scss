@@ -61,8 +61,6 @@ nav {
   height: 274px;
 }
 
-
-
 .auction-link {
   text-transform: uppercase;
   color: #000;
@@ -135,6 +133,7 @@ footer li a {
   left: auto;
   right: -50px;
 }
+
 .carousel-control.left {
   background-image: none;
   right: auto;
@@ -145,4 +144,8 @@ footer li a {
   color: black;
   text-decoration: none;
   font-weight: normal;
+}
+
+.carousel-inner {
+  min-height: 435px;
 }

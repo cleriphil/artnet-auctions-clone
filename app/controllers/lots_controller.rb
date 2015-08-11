@@ -14,8 +14,10 @@ class LotsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @lot = @auction.lots.new(lot_params)
-    @artist = Artist.find(lot_params[:artist_id])
-    @artist.lots.create(lot_params)
+    unless lot_params[:artist_id].empty? | nil
+      @artist = Artist.find(lot_params[:artist_id])
+      @artist.lots.create(lot_params)
+    end
     if @lot.save
      flash[:notice] = "Lot Saved!"
      redirect_to auction_path(@auction)

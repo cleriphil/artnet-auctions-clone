@@ -1,13 +1,15 @@
-##Artnet Auctions Clone
+## Artnet Auctions Clone
 
 A version of http://www.artnet.com/auctions/ built with Ruby on Rails.
 
-###Setup
+### Setup
 clone project onto your desktop and go to the project directory in the terminal.
 run postgres
+
 ```
 $ postgres
 ```
+
 create the database:
 ```
 $ rake db:create

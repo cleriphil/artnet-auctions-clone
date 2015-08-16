@@ -3,6 +3,7 @@
 <div class="container">
   <div class="col-md-12">
      <h2 class="text-center">Featured Auctions</h2>
+     <br>
       <div id="auction_car" class="carousel slide">
         <div class="carousel-inner">
           <% auction_sets = @auctions.each_slice(4).to_a %>
@@ -38,7 +39,7 @@
 </div>
 
 <% if current_user && current_user.admin? %>
-  <%= link_to 'Add Auction', new_auction_path	 %>
+  <%= link_to 'Add Auction', new_auction_path, class: "btn btn-success"%>
 <% end %>
 
 <hr>
@@ -46,6 +47,7 @@
 <div class="container">
   <div class="col-md-12">
      <h2 class="text-center">Featured Artists</h2>
+     <br>
       <div id="artist_car" class="carousel slide">
         <div class="carousel-inner">
           <% artist_sets = @artists.each_slice(4).to_a %>

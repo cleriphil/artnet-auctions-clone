@@ -40,8 +40,8 @@
 </div>
 
 <% if current_user && current_user.admin? %>
-  <%= link_to "Edit Lot", edit_auction_lot_path(@auction, @lot) %>
-  <%= link_to "Delete Lot", auction_lot_path(@auction, @lot),
+  <%= link_to "Edit Lot", edit_auction_lot_path(@auction, @lot), class: "btn btn-primary" %>
+  <%= link_to "Delete Lot", auction_lot_path(@auction, @lot),  class: "btn btn-danger",
                         :data => {:confirm => "Are you sure?",
                         :method => "delete"} %>
 <% end %>

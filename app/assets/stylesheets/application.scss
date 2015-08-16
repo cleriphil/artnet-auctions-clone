@@ -25,6 +25,10 @@ body {
   color: #231F20;
 }
 
+h2 {
+  font-size: 25px;
+}
+
 .notice {
   color:#458B00;
 }
@@ -69,6 +73,14 @@ nav {
 
 }
 
+.form {
+  width: 500px;
+}
+
+.form input {
+
+}
+
 a, a:hover {
   text-decoration: none;
   color: #000;
@@ -104,20 +116,19 @@ a, a:hover {
   background-color: white;
 }
 
-footer {
-  position: relative;
-  bottom: -900px;
-  padding: 20px 0 20px 0;
-  background-color: #000;
-}
-footer li {
-  display: inline;
-  height: 100px;
-  padding-right: 20px;
+.pages {
+  padding: 0 150px 0 150px;
+  font-size: 11px;
+  color: #666666;
+  margin-top: -50px;
 }
 
-footer li a {
-  color: #fff;
+.about li {
+  margin-top: 10px;
+}
+
+.pages li {
+  list-style-type: disc;
 }
 
 .carousel-control {
@@ -148,4 +159,20 @@ footer li a {
 
 .carousel-inner {
   min-height: 435px;
+}
+
+footer {
+  position: relative;
+  bottom: -900px;
+  padding: 20px 0 20px 0;
+  background-color: #000;
+}
+footer li {
+  display: inline;
+  height: 100px;
+  padding-right: 20px;
+}
+
+footer li a {
+  color: #fff;
 }

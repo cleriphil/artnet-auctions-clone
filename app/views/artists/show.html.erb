@@ -1,0 +1,25 @@
+<% content_for(:title, "#{@artist.name}") %>
+
+
+<h1 class="text-center"><%= @artist.name %><small><%= @artist.nationality %><%= @artist.year_of_birth %></small></h1>
+<hr>
+<p class="text-center">View artworks by <strong><%= @artist.name %></strong>
+currently for sale on artnet Auctions.<br>Click on any
+lot to see more details or to place your bid.</p>
+
+
+<% @artist.lots.each do |lot| %>
+  <% if lot.artist %>
+    <%= lot.artist.name %>
+    <%= lot.artist.nationality %>
+    <%= lot.artist.year_of_birth %>
+  <% else %>
+    Unknown Artist
+  <% end %>
+<hr>
+<% end %>
+
+
+<% if current_user && current_user.admin? %>
+
+<% end %>

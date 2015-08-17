@@ -58,14 +58,17 @@
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |artist| %>
+                <% if artist.lots.length > 0  %>
+
                   <div class="col-sm-3 text-center">
-                    <%= artist.name %>
-                    <% if artist.lots.length > 0  %>
-                      <%= image_tag artist.lots[0].image(:medium) %>
-                    <% end %>
+                    <%= link_to artist.name, artist_path(artist) %>
+                      <%= image_tag artist.lots[0].image %>
+                      <br>test for lot title: <%= artist.lots[0].artwork_title %>
+<br>
                     <%= artist.nationality %>
                     <%= artist.year_of_birth %>
                   </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>

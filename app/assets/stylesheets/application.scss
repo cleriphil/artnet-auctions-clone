@@ -161,6 +161,16 @@ a, a:hover {
   min-height: 435px;
 }
 
+.auction-description {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.lot-image img {
+  -webkit-box-shadow: 0px 0px 10px #888888;
+  box-shadow: 0px 0px 10px #888888;
+}
+
 footer {
   position: relative;
   bottom: -900px;

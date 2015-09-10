@@ -15,16 +15,15 @@
               <div class="row">
                 <% set.each do |auction| %>
                   <div class="col-sm-3 text-center">
-                    <%= auction.name %>
                     <% if auction.lots.length > 0  %>
-                      <%= image_tag auction.lots[0].image(:medium) %>
+                      <%= link_to "#{image_tag(auction.lots[0].image(:medium))}".html_safe, auction_path(auction) %>
                     <% end %>
-                    <p><small>Live for bidding
+                    <p><%= auction.name %><br>
                       <% if auction.start_date.today? | auction.start_date.past?  %>
                         now through <%= auction.end_date.strftime("%B %-d") %>
                       <% else %>
-                        <%= auction.start_date.strftime("%B %-d") %>-<%= auction.end_date.strftime("%-d") %>
-                      <% end %></small><br>
+                        <small><%= auction.start_date.strftime("%B %-d") %>-<%= auction.end_date.strftime("%-d") %></small>
+                      <% end %><br>
                     <%= link_to 'Learn More', auction_path(auction), class: "auction-link"%></p>
                   </div>
                 <% end %>

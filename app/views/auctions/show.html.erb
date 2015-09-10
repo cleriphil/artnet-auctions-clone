@@ -10,21 +10,21 @@
   <% end %>
 </p>
 <hr>
-<p class="text-center"><%= @auction.description %></p>
+<div class="text-center auction-description"><%= @auction.description %></div>
 
-<% @auction.lots.each do |lot| %>
-  <% if lot.artist %>
-    <%= lot.artist.name %>
-    <%= lot.artist.nationality %>
-    <%= lot.artist.year_of_birth %>
-  <% else %>
-    Unknown Artist
+  <% @auction.lots.each do |lot| %>
+<div class="">
+  <%= link_to "#{image_tag(lot.image(:medium))}".html_safe, auction_lot_path(@auction, lot), class: 'lot-image' %><br>
+    <% if lot.artist %>
+      <%= lot.artist.name %><br>
+    <% else %>
+      Unknown Artist<br>
+    <% end %>
+    <%= link_to "#{lot.artwork_title}, #{lot.artwork_date}" , auction_lot_path(@auction, lot) %><br>
+    <%= link_to lot.estimate, auction_lot_path(@auction, lot) %>
+</div>
+
   <% end %>
-  <%= link_to lot.artwork_title, auction_lot_path(@auction, lot) %><br>
-  <%= link_to lot.artwork_date, auction_lot_path(@auction, lot)%><br>
-  <%= link_to lot.estimate, auction_lot_path(@auction, lot) %>
-<hr>
-<% end %>
 
 
 <% if current_user && current_user.admin? %>

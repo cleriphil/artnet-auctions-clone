@@ -32,8 +32,10 @@
           <% end %>
         </div>
       </div>
-      <a class="left carousel-control" href="#auction_car" data-slide="prev"><</a>
-      <a class="right carousel-control" href="#auction_car" data-slide="next">></a>
+      <% if @auctions.length > 3 %>
+        <a class="left carousel-control" href="#auction_car" data-slide="prev"><img src="images/arrow_left.png" alt="left arrow"></a>
+        <a class="right carousel-control" href="#auction_car" data-slide="next"><img src="images/arrow_right.png" alt="right arrow"></a>
+      <% end %>
   </div>
 </div>
 
@@ -60,12 +62,10 @@
                 <% if artist.lots.length > 0  %>
 
                   <div class="col-sm-3 text-center">
+                    <%= link_to "#{image_tag(artist.lots[0].image(:medium))}".html_safe, artist_path(artist) %>
+
                     <%= link_to artist.name, artist_path(artist) %>
-                      <%= image_tag artist.lots[0].image %>
-                      <br>test for lot title: <%= artist.lots[0].artwork_title %>
-<br>
-                    <%= artist.nationality %>
-                    <%= artist.year_of_birth %>
+                    <br>test for lot title: <%= artist.lots[0].artwork_title %>
                   </div>
                   <% end %>
                 <% end %>
@@ -74,7 +74,9 @@
           <% end %>
         </div>
       </div>
-      <a class="left carousel-control" href="#artist_car" data-slide="prev"><</a>
-      <a class="right carousel-control" href="#artist_car" data-slide="next">></a>
+      <% if @artists.length > 3 %>
+        <a class="left carousel-control" href="#artist_car" data-slide="prev"><img src="images/arrow_left.png" alt="left arrow"></a>
+        <a class="right carousel-control" href="#artist_car" data-slide="next"><img src="images/arrow_right.png" alt="right arrow"></a>
+      <% end %>
   </div>
 </div>

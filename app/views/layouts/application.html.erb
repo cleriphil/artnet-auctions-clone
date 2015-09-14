@@ -6,45 +6,45 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 <body>
+  <header class="header-container">
 
-      <nav class="navbar navbar-default navbar-fixed-top" id="my-navbar">
-        <div class="navbar-header">
+    <nav class="navbar navbar-default navbar-fixed-top" id="my-navbar">
+      <div class="navbar-header">
 
-          <div class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </div>
-
-          <a href="/" class="navbar-brand">
-            <img src="/images/logo.png" alt="artnet logo">
-          </a>
-
-        </div>
-         <div class="collapse navbar-collapse" id="navbar-collapse">
-
-          <ul class="nav navbar-nav pull-right">
-            <% if user_signed_in? %>
-              <li><%= link_to "Welcome, #{current_user.username}", edit_user_registration_path %></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "About Us", about_path %></li>
-              <li><%= link_to "Login", new_user_session_path %></li>
-              <li><%= link_to "Register", new_user_registration_path %></li>
-
-            <% end %>
-          </ul>
-
+        <div class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </div>
 
+        <a href="/" class="navbar-brand">
+          <img src="/images/logo.png" alt="artnet logo">
+        </a>
+
+      </div>
+       <div class="collapse navbar-collapse" id="navbar-collapse">
+
+        <ul class="nav navbar-nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "Welcome, #{current_user.username}", edit_user_registration_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "About Us", about_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path %></li>
+
+          <% end %>
+        </ul>
+
+      </div>
     </nav>
+  </header>
 
+    <div class="flash"><span class="notice"><%= flash[:notice] %></span><span class="alert"><%= flash[:alert] %></span>
+</div>
     <div class="main-container">
 
 
-    <p class="notice"><%= flash[:notice] %></p>
-
-    <p class="alert"><%= flash[:alert] %></p>
     <%= yield %>
   </div>
   <footer>

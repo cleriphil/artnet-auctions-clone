@@ -17,18 +17,41 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+$black: #000;
+$carousel-control-position: -50px;
+
 
 body {
-  padding-top: 100px;
   font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   color: #231F20;
+
+  // margin: 0 5% 0 5%;
+}
+
+.header-container nav, .main-container {
+  max-width: 1163px;
+}
+
+.main-container {
+  padding: 100px 20px 0 20px;
+  // padding-top: 100px;
+
+}
+
+
+h1 {
+    font-size: 20px;
+    // for auction title
 }
 
 h2 {
   font-size: 25px;
 }
 
+.flash {
+  height: 10px;
+}
 .notice {
   color:#458B00;
 }
@@ -37,27 +60,16 @@ h2 {
   color: #cc0000;
 }
 
+p {
+  color: #1F1B1C;
+
+}
+
 li {
   list-style-type: none;
 }
 
-.navbar-brand {
-  position: relative;
-  top: 20px;
-  z-index: 15;
-}
 
-nav {
-  height: 80px;
-}
-
-.navbar-default {
-  background-color: #fff;
-}
-
-.main-container {
-  padding: 0 20px 0 20px;
-}
 
 .auction-box {
   float: left;
@@ -67,11 +79,13 @@ nav {
 
 .auction-link {
   text-transform: uppercase;
-  color: #000;
+  color: $black;
   font-weight: bold;
   font-size: 10px;
 
 }
+
+
 
 .form {
   width: 500px;
@@ -83,38 +97,49 @@ nav {
 
 a, a:hover {
   text-decoration: none;
-  color: #000;
+  color: $black;
 }
 
-.navbar-toggle {
-  background-color: white;
-  border: none;
-}
+.navbar-default  {
+  height: 80px;
+  // margin: 0 5% 0 5%;
+  background-color: #fff;
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: white;
-  cursor: pointer;
-
-}
-
-.navbar-toggle, .navbar-collapse {
-  position: relative;
-  top: 29px;
-}
-.nav .navbar-nav li a {
-  background-color: yellow;
-  z-index: 6;
-}
+  .navbar-brand {
+    position: relative;
+    top: 20px;
+    z-index: 15;
+  }
 
 
-.navbar-default .navbar-nav > li > a {
-  background-color: white;
-  color: black;
+  .navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .navbar-toggle, .navbar-collapse {
+    position: relative;
+    top: 29px;
+  }
+
+  .navbar-nav > li > a:hover {
+   background-color: white;
+ }
+
+ .navbar-nav > li > a {
+   color: black;
+   z-index: 6;
+   font-size: 12px;
+ }
+
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-  background-color: white;
+.bid-date {
+  font-size: 11px;
 }
+
+
 
 .pages {
   padding: 0 150px 0 150px;
@@ -139,22 +164,26 @@ a, a:hover {
 
 }
 
-.carousel-control.right {
-  background-image: none;
-  left: auto;
-  right: -50px;
-}
+.carousel-control {
 
-.carousel-control.left {
-  background-image: none;
-  right: auto;
-  left: -50px;
-}
+  &.right {
+    background-image: none;
+    left: auto;
+    right: $carousel-control-position;
+  }
 
-.carousel-control:hover {
-  color: black;
-  text-decoration: none;
-  font-weight: normal;
+  &.left {
+    background-image: none;
+    right: auto;
+    left: $carousel-control-position;
+  }
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
 }
 
 .carousel-inner {
@@ -164,6 +193,7 @@ a, a:hover {
 .auction-description {
   width: 600px;
   margin: 0 auto;
+  padding-bottom: 47px;
 }
 
 .lot-image img {

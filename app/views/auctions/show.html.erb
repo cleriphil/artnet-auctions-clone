@@ -2,7 +2,7 @@
 
 
 <h1 class="text-center"><%= @auction.name %></h1>
-<p class="text-center">Live for bidding
+<p class="bid-date text-center">Live for bidding
   <% if @auction.start_date.today? | @auction.start_date.past?  %>
     now through <%= @auction.end_date.strftime("%B %-d, %Y") %>
   <% else %>

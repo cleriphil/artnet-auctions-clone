@@ -168,6 +168,30 @@ a, a:hover {
   }
 }
 
+.carousel-section {
+  // width: 215px;
+  // height: 274px;
+  margin: 0 auto;
+}
+
+.carousel-image-container {
+  height: 298px;
+
+
+
+  .carousel-image {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 90%;
+    height: 274px;
+    background-image: url('<%= auction.lots[0].image.url %>');
+    // z-index: 1;
+    overflow: hidden;
+    padding: 10px;
+  }
+}
+
 .carousel-inner {
   min-height: 435px;
 }

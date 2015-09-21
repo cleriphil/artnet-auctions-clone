@@ -1,5 +1,11 @@
 <% content_for(:title, "Art Auctions - Buying and Selling on artnet Auctions") %>
 
+
+
+
+<hr>
+
+
 <div class="container">
   <div class="col-md-12">
      <h2 class="text-center">Featured Auctions</h2>
@@ -14,9 +20,13 @@
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |auction| %>
-                  <div class="col-sm-3 text-center">
+                  <div class="col-sm-3 carousel-section text-center">
                     <% if auction.lots.length > 0  %>
-                      <%= link_to "#{image_tag(auction.lots[0].image(:medium))}".html_safe, auction_path(auction) %>
+                        <div class="carousel-image-container">
+                          <%= link_to auction_path(auction) do %>
+                            <span class="carousel-image" style="background-image: url('<%= auction.lots[0].image.url %>');"><span>
+                          <% end %>
+                        </div>
                     <% end %>
                     <p><%= auction.name %><br>
                       <% if auction.start_date.today? | auction.start_date.past?  %>
@@ -26,6 +36,7 @@
                       <% end %><br>
                     <%= link_to 'Learn More', auction_path(auction), class: "auction-link"%></p>
                   </div>
+
                 <% end %>
               </div>
             </div>
@@ -59,16 +70,22 @@
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |artist| %>
-                <% if artist.lots.length > 0  %>
 
-                  <div class="col-sm-3 text-center">
-                    <%= link_to "#{image_tag(artist.lots[0].image(:medium))}".html_safe, artist_path(artist) %>
-
+                  <div class="col-sm-3 carousel-section text-center">
+                    <% if artist.lots.length > 0  %>
+                      <div class="carousel-image-container">
+                        <%= link_to artist_path(artist) do %>
+                          <span class="carousel-image" style="background-image: url('<%= artist.lots[0].image.url %>');"><span>
+                        <% end %>
+                      </div>
+                    <% end %>
                     <%= link_to artist.name, artist_path(artist) %>
-                    <br>test for lot title: <%= artist.lots[0].artwork_title %>
                   </div>
-                  <% end %>
+
+
                 <% end %>
+                </div>
+
               </div>
             </div>
           <% end %>

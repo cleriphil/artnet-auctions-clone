@@ -12,11 +12,14 @@
      <br>
       <div id="auction_car" class="carousel slide">
         <div class="carousel-inner">
-          <% auction_sets = @auctions.each_slice(4).to_a %>
+
+          <% auction_sets = @auctions.make_sets %>
+          <% @auctions.make_active %>
+
           <% auction_sets.each do |set| %>
-            <% if set === auction_sets[0] %>
-                <% active = true %>
-            <% end %>
+
+
+
             <div class="<%= active ? 'item active' : 'item' %>">
               <div class="row">
                 <% set.each do |auction| %>

@@ -1,6 +1,8 @@
 class AuctionsController < ApplicationController
   before_action :admin_user, only: [:edit, :update, :destroy, :new, :create]
-
+  include make_sets
+  include make_active
+  
   def index
     @auctions = Auction.all
     @artists = Artist.all
